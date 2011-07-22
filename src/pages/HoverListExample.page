@@ -1,0 +1,22 @@
+<apex:page standardController="Account">
+
+	<!-- reference to the HoverList component -->
+	<c:HoverList />
+	
+    <apex:pageBlock title="{!Account.Name}">
+		<apex:pageBlockSection columns="1">
+			<apex:outputField value="{!Account.Name}" />
+			<apex:outputField value="{!Account.Site}" />
+			<apex:outputField value="{!Account.Phone}" />
+		</apex:pageBlockSection>	
+    </apex:pageBlock>
+  
+	<!-- related lists -->
+    <apex:relatedList list="Contacts" />
+    <apex:relatedList list="AccountContactRoles" />
+    <apex:relatedList list="OpenActivities" />
+    <apex:relatedList list="ActivityHistories" />
+	<apex:relatedList list="Opportunities" />
+	<apex:relatedList list="NotesAndAttachments" />
+    
+</apex:page>

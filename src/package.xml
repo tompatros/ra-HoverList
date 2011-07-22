@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>HoverList</members>
+        <name>ApexComponent</name>
+    </types>
+    <types>
+        <members>HoverListExample</members>
+        <name>ApexPage</name>
+    </types>
+    <version>20.0</version>
+</Package>

@@ -1,0 +1,49 @@
+<apex:component >
+
+	<apex:includeScript value="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js" />
+	
+	<script>
+	    $(document).ready(function() {
+	        var jLinks = '';
+	        $('.bRelatedList').each(function(i) {
+	            jLinks += '<a href="#">' + $(this).find('h3').text() + '</a>';
+	        });
+	        $('.related_lists .links').append(jLinks);
+	        
+	        $('.related_lists .links a').mouseover(function() {
+	            $('.related_list_container').mouseleave();
+	            jIndex = $(this).index();
+	            
+	            if($('.bRelatedList:eq(' + jIndex + ') .listRelatedObject').size() > 0) {
+	                $('.bRelatedList:eq(' + jIndex + ') .listRelatedObject').clone().appendTo('.related_list_container');
+	            }
+	            else {
+	                $('.bRelatedList:eq(' + jIndex + ') .noStandardTab').clone().appendTo('.related_list_container');
+	            }
+	        });
+	        
+	        $('.related_list_container').mouseleave(function() {
+	            $(this).empty();
+	        });
+	        
+	    });
+	</script>
+	
+	<style>
+	    .related_lists .links {
+	        margin: 10px;
+	        text-align: center;
+	    }
+	    .related_lists .links a {
+	        margin: 10px;
+	    }
+	</style>
+    
+	<div class="related_lists" style="width: 100%;">
+	    <div class="links"></div>
+	    <div style="position:relative; width: 100%;">
+	        <div class="related_list_container" style="position:absolute; z-index: 10000; width: 100%; border: solid 1px #000; background-color: #FFF;"></div>
+	    </div>
+	</div> 
+
+</apex:component>
